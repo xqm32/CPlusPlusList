@@ -20,7 +20,7 @@ double test(F func) {
     return 1000.0 * (timeB - timeA) / CLOCKS_PER_SEC;
 }
 
-int main() {
+void finishMyHomework() {
     printf("对含有 %d 个整数的两个链表合并并排序花费 %lf ms\n", LIST_SIZE,
            test<LinkedList>(mergeSort<int>));
     printf("对含有 %d 个整数的两个链表排序并合并花费 %lf ms\n", LIST_SIZE,
@@ -30,3 +30,5 @@ int main() {
     printf("对含有 %d 个整数的两个顺序表合并并排序花费 %lf ms\n", LIST_SIZE,
            test<SequenceList>(sortMerge<int>));
 }
+
+int main() { finishMyHomework(); }
