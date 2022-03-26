@@ -1,4 +1,3 @@
-#include <cstdlib>
 #include <ctime>
 
 #include "LinkedList.h"
@@ -6,14 +5,14 @@
 #include "Sort.h"
 #include "TestList.h"
 
-#define LIST_SIZE 1000
+#define TEST_SIZE 1024
 
 template <template <typename> typename T, typename F>
 double test(F func) {
     auto listA = T<int>();
     auto listB = T<int>();
-    generateList(listA, LIST_SIZE);
-    generateList(listB, LIST_SIZE);
+    generateList(listA, TEST_SIZE);
+    generateList(listB, TEST_SIZE);
     auto timeA = clock();
     func(listA, listB);
     auto timeB = clock();
@@ -21,13 +20,13 @@ double test(F func) {
 }
 
 void finishMyHomework() {
-    printf("对含有 %d 个整数的两个链表合并并排序花费 %lf ms\n", LIST_SIZE,
+    printf("对含有 %d 个整数的两个链表合并并排序花费 %lf ms\n", TEST_SIZE,
            test<LinkedList>(mergeSort<int>));
-    printf("对含有 %d 个整数的两个链表排序并合并花费 %lf ms\n", LIST_SIZE,
+    printf("对含有 %d 个整数的两个链表排序并合并花费 %lf ms\n", TEST_SIZE,
            test<LinkedList>(mergeSort<int>));
-    printf("对含有 %d 个整数的两个顺序表合并并排序花费 %lf ms\n", LIST_SIZE,
+    printf("对含有 %d 个整数的两个顺序表合并并排序花费 %lf ms\n", TEST_SIZE,
            test<SequenceList>(mergeSort<int>));
-    printf("对含有 %d 个整数的两个顺序表合并并排序花费 %lf ms\n", LIST_SIZE,
+    printf("对含有 %d 个整数的两个顺序表合并并排序花费 %lf ms\n", TEST_SIZE,
            test<SequenceList>(sortMerge<int>));
 }
 
