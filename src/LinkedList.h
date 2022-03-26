@@ -127,6 +127,7 @@ class LinkedList : public List<T> {
             t->prev = p->prev;
             t->next->prev = t;
             t->prev->next = t;
+            ++__n;
             ++__length;
         }
     }
